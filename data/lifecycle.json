@@ -1,0 +1,43 @@
+{
+  "checked": "2026-10-05",
+  "why": [
+    "capabilities.json records retirement in the free-text `notes` field, but a routing policy that never reads notes will happily keep selecting a retired model: the live ones still answer, so every availability check passes.",
+    "Retirement is a human judgement, not something to auto-derive, so this file is hand-curated from the `notes` evidence rather than generated. `tools/build-capabilities.mjs` prints the candidates it found for review; it deliberately does not write them.",
+    "A model absent from this file is treated as `active`, so adding an entry is the only way to retire one. The status is per ROUTE as configured here: a model whose free tier is retired is retired for routing even if the weights remain published."
+  ],
+  "statuses": {
+    "deprecated": "Vendor has retired this endpoint. Never route to it."
+  },
+  "models": {
+    "agnes-2.0-flash": {
+      "status": "deprecated",
+      "reason": "官方文档标注该模型已废弃，API 由 agnes-2.5-flash 替代。仍然可调用且免费，因此此前会被 daily_chat 分支正常选中——这正是生命周期闸门要拦的情况。",
+      "successor": "agnes-2.5-flash",
+      "evidence": "capabilities.json notes"
+    },
+    "agnes-2.5-pro-alpha": {
+      "status": "deprecated",
+      "reason": "官方称其托管 API 已废弃；权重虽按 Apache 2.0 在 HF 开源，但本部署只能经由托管端点调用。",
+      "successor": null,
+      "evidence": "capabilities.json notes"
+    },
+    "agnes-video-v2.0": {
+      "status": "deprecated",
+      "reason": "文档页仅为迁移说明（指向 Agnes Video 2.5 / 2.5 Flash），疑已废弃，且实测不可达。",
+      "successor": "agnes-video-v2.5",
+      "evidence": "capabilities.json notes + probe (reachable=false)"
+    },
+    "mimo-v2.5-free": {
+      "status": "deprecated",
+      "reason": "models.dev 标注 Zen 该免费档为 deprecated、端点上限 200K。模型本身可能仍可用，但本部署只能经由这个已退役的免费端点调用。",
+      "successor": "mimo-v2.6-flash-free",
+      "evidence": "capabilities.json notes"
+    },
+    "deepseek-v4-flash": {
+      "status": "deprecated",
+      "reason": "DeepSeek 官方公告 V4-Flash 已停用；该 id 现被临时路由到 V4.1-Flash。它紧挨着 fallback 路由，因此静默兜底到它会拿到一个身份与实际服务不符的模型。",
+      "successor": "deepseek-v4.1-flash",
+      "evidence": "capabilities.json notes（官方 V4 模型卡：注意条款）"
+    }
+  }
+}

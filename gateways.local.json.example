@@ -1,0 +1,7 @@
+[
+  {
+    "route": "my-gateway",
+    "base": "https://api.example.com/v1",
+    "keyEnv": "MY_GATEWAY_API_KEY"
+  }
+]

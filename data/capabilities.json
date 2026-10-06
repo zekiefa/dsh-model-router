@@ -1,0 +1,5197 @@
+{
+  "generated": "2026-10-04",
+  "sources": [
+    "https://models.dev/api.json (metadata; contains NO capability scores)",
+    "vendor model cards: anthropic.com, blog.google, NVIDIA, Xiaomi MiMo, inclusionAI, Meituan LongCat, deepseek-ai",
+    "benchmark aggregators: artificialanalysis.ai, the-decoder.de, simonwillison.net",
+    "live probe through the author's own gateways (availability, tool-calling, TTFT); re-run tools/probe-catalog.mjs to refresh"
+  ],
+  "caveats": [
+    "Score confidence: high=53, medium=85, low=158, unknown=37 of 333 cells. LOW cells are tier inference anchored on models.dev metadata, NOT measured capability.",
+    "models.dev carries no capability scores; any cell sourcing only models.dev is an inference.",
+    "Artificial Analysis intelligence index is NOT comparable across index versions.",
+    "Same model id differs by provider (context/price); values here are indicative, the live config is authoritative.",
+    "translation column is almost entirely null — do not route on it.",
+    "grok-4 / grok-420-* are chat-capable but FAIL tool-calling: unusable for agent turns."
+  ],
+  "measured_inventory": {
+    "gateways_advertised": 51,
+    "chat_capable": 25,
+    "tool_capable": 22,
+    "advertised_but_dead": 24
+  },
+  "models": [
+    {
+      "id": "agnes-2.0-flash",
+      "context_window": 512000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 3,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": null,
+        "writing_literature": 3,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-20-flash",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-20-flash",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-20-flash",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-20-flash",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-20-flash",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-20-flash",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-20-flash",
+          "confidence": "low"
+        }
+      },
+      "notes": "官方文档仅声明通用对话/图像理解/工具调用与 512K 上下文，无任何评测数字，分数为基于官方定位的低置信估计；该模型官方已标记废弃（API 由 agnes-2.5-flash 替代）。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 629,
+        "note": "ok"
+      },
+      "configured": {
+        "route": null,
+        "live": null
+      }
+    },
+    {
+      "id": "claude-opus-4-8",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 5,
+        "output": 25,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.5,
+        "fast_mode": {
+          "input": 10,
+          "output": 50
+        }
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 4,
+        "writing_literature": 5,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "medium"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "medium"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "high"
+        }
+      },
+      "notes": "Opus 4.8（2026-05-28）；Super-Agent 唯一端到端全通过、Online-Mind2Web 84%、Legal Agent 最高分；测试方明确提到 translation 场景可靠。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 2446,
+        "note": "ok"
+      },
+      "configured": {
+        "route": null,
+        "live": null
+      }
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "price": {
+        "input": 0.75,
+        "output": 3.75,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.075
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 4,
+        "writing_literature": 3,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Gemini 3.8 Flash（2026-09-02）；models.dev 描述为 Google 最聪明的 Flash，面向长时程软件工程、自主代理与企业工作流；blog.google 原文页面为 JS 渲染，未能取到表格。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 4636,
+        "note": "ok"
+      },
+      "configured": {
+        "route": null,
+        "live": null
+      }
+    },
+    {
+      "id": "gpt-5.5",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 5,
+        "output": 30,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.5,
+        "over_272k": {
+          "input": 10,
+          "output": 45
+        }
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 4,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "high"
+        }
+      },
+      "notes": "GPT-5.5（2026-04-23）；Terminal-Bench 2.1 在 Codex CLI harness 下 83.4%（Anthropic Opus 4.8 官方脚注）；定位为编码、计算机操作、研究与知识工作的默认前沿模型。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 22718,
+        "note": "ok"
+      },
+      "configured": {
+        "route": null,
+        "live": null
+      }
+    },
+    {
+      "id": "gpt-6-astra",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 10,
+        "output": 50,
+        "unit": "USD/1M tokens",
+        "cache_read": 1,
+        "over_272k": {
+          "input": 20,
+          "output": 75
+        }
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 5,
+        "writing_literature": 5,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "high"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/claude-sonnet-5-5",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "high"
+        },
+        "writing_literature": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "high"
+        }
+      },
+      "notes": "GPT-6 Astra（2026-09-04，$10/$50）；AA 智能指数领先者（Terminal-Bench 4.0 @xhigh 60%，每智能指数任务 $3.26）；BenchLM BenchAlign 也以 88.75 列为榜首；GPT-6.1 Sol 仅低其 1 分。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 9635,
+        "note": "ok"
+      },
+      "configured": {
+        "route": null,
+        "live": null
+      }
+    },
+    {
+      "id": "space-bunny-free",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 4,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://spacebunnyalpha.com/",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://spacebunnyalpha.com/",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://spacebunnyalpha.com/",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://spacebunnyalpha.com/",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://spacebunnyalpha.com/",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://spacebunnyalpha.com/",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://spacebunnyalpha.com/",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://spacebunnyalpha.com/",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Zen 官方确认为 stealth 匿名模型（零留存、不用于训练）；第三方榜单 spacebunnyalpha.com 实测 MMLU-Pro 75%、GPQA Diamond 82.0%（仅 60 题子集）、HLE 46.1%（300 题子集）、AI BENCHY 7.0/10 且工具调用 10/10，第三方数据非厂商背书。",
+      "measured": null,
+      "configured": {
+        "route": null,
+        "live": null
+      }
+    },
+    {
+      "id": "agnes-2.5-flash",
+      "context_window": 512000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0,
+        "list_input": 0.05,
+        "list_output": 0.15
+      },
+      "scores": {
+        "daily_chat": 3,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-flash",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-flash",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-flash",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-flash",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-flash",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-flash",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-flash",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-flash",
+          "confidence": "medium"
+        }
+      },
+      "notes": "官方称其为 2.0 Flash 的全量升级，重点优化编码、智能体工作流、工具调用与推理，512K 上下文；仅有能力声明、无公开评测数字，现价 $0。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 588,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-2.5-pro",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": {
+        "input": 0.45,
+        "output": 0.9,
+        "cache_read": 0.045
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 3,
+        "writing_literature": 4,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "low"
+        }
+      },
+      "notes": "官方公布 AA 打榜数据（Intelligence Index 39、GPQA 87.6%、SciCode 42.2%、LCR 63.7%、TerminalBench v2.1 67.0%、Tau3 11.6%、HLE 31.9%、非幻觉仅 13.3%），1M 上下文；数据源自其 Beta/Alpha 打榜模型，属厂商自述。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 746,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-2.5-pro-alpha",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": {
+        "input": 0.45,
+        "output": 0.9,
+        "cache_read": 0.0038
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 3,
+        "writing_literature": 4,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "high"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "high"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-25-pro",
+          "confidence": "medium"
+        }
+      },
+      "notes": "AA 打榜数据实际标注为 Alpha 打榜模型（Intelligence Index 39、GPQA 87.6%、AA-LCR 63.7%），故该档证据最强；官方称其托管 API 已废弃，权重按 Apache 2.0 在 HF 开源。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 5632,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-2.5-pro-beta",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "无独立文档页、models.dev 亦无条目；官方仅在 agnes-2.5-pro 页面提及它是被商业化的『打榜』版本，全部规格 unknown。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 710,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-3.0-flash",
+      "context_window": 524288,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0,
+        "list_input": 0.05,
+        "list_output": 0.15
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 3,
+        "writing_literature": 4,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-30-flash",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-30-flash",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-30-flash",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-30-flash",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-30-flash",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-30-flash",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-30-flash",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://agnes-ai.com/zh-Hans/docs/agnes-30-flash",
+          "confidence": "medium"
+        }
+      },
+      "notes": "官方援引 AA 模型页（2026-09-11）：AA Intelligence Index v4.3 = 36（标注为估算值）、同类排名 1/61、输出 252.7 tok/s，并强调 Agnes Code 任务执行与工具编排；512K 上下文，现价 $0。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 1094,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-image-2.0-flash",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "图像生成/编辑模型（文生图、图生图、多图合成），9 项文本任务不适用故全部 unknown；官方称其登上 AA 图像编辑榜 ELO 1184（Top 20），按图计费 $10/千张（1K，现 $0）。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": null,
+        "note": "media model, not chat"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-image-2.1-flash",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "图像模型，文本任务不适用；官方称针对高信息密度图像生成优化，参数/尺寸/价格与 2.0 Flash 相同，无文本能力评测。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": null,
+        "note": "media model, not chat"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-image-2.5-flash",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "图像模型，文本任务不适用；官方称在生成、编辑、构图、细节与提示词遵循上全面超过 Image 2.1，按图计费同价（现 $0）。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": null,
+        "note": "media model, not chat"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-video-2.5",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio"
+      ],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "视频生成模型（720P/1080P/1K/2K，4-12 秒），9 项文本任务不适用；按秒计费 720P $0.025/s、2K $0.055/s，第 6 张起参考图 $0.005/张。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": null,
+        "note": "media model, not chat"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-video-2.5-flash",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio"
+      ],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "视频生成模型，仅支持 size=\"720P\"、参考图≤5、参考音频≤3 且不支持参考视频，文本任务不适用；当前限时免费（刊例 720P $0.025/s）。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": null,
+        "note": "media model, not chat"
+      },
+      "configured": null
+    },
+    {
+      "id": "agnes-video-v2.0",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "其文档页仅为迁移说明（指向 Agnes Video 2.5 / 2.5 Flash），疑已废弃，无任何规格或价格数据，全部 unknown。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": null,
+        "note": "media model, not chat"
+      },
+      "configured": null
+    },
+    {
+      "id": "big-pickle",
+      "context_window": 200000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 3,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": 3,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 3,
+          "source": "https://opencode.ai/docs/zen/",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://opencode.ai/docs/zen/",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://opencode.ai/docs/zen/",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://github.com/PhillipChaffee/big-pickle-swe-atlas",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Zen 官方称其为 stealth 模型且免费期内数据可能被用于改进模型；仅找到第三方复现仓库称其在 Scale AI SWE Atlas Codebase QnA 得 50.8%（未获官方确认），200K 上下文，无厂商评测。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "claude-opus-4-6",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 5,
+        "output": 25,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.5
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 4,
+        "writing_literature": 4,
+        "translation": 3,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-4-7",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "Opus 4.6（2026-02-04）；1M 上下文、工具调用与 effort 均支持；Coding 分依据 Opus 4.7 官方对比（CursorBench 58% 基线）。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 2741,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "claude-opus-4-6-thinking",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 5,
+        "output": 25,
+        "unit": "USD/1M tokens"
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 4,
+        "writing_literature": 4,
+        "translation": 3,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-4-7",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "非厂商官方 id：按聚合网关命名惯例判断为 claude-opus-4-6 + 扩展思考（302ai 有 claude-opus-4-7-thinking / claude-opus-5-thinking，nano-gpt 有 anthropic/claude-opus-4.6:thinking）；映射可信度 medium，分数沿用基座模型。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 231,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "claude-opus-4-7",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 5,
+        "output": 25,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.5
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 4,
+        "writing_literature": 5,
+        "translation": 3,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-4-7",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-7",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-4-7",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-7",
+          "confidence": "medium"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-7",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-7",
+          "confidence": "high"
+        }
+      },
+      "notes": "Opus 4.7（2026-04-16，$5/$25）；CursorBench 70%（4.6 为 58%）、BigLaw Bench 90.9%@high、OSWorld-Verified 82.3%；官方称长上下文一致性最佳。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 2460,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "claude-opus-5",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 5,
+        "output": 25,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.5
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 5,
+        "writing_literature": 4,
+        "translation": 3,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-5",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-5",
+          "confidence": "high"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-5",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-5",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-5",
+          "confidence": "high"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-5",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-5",
+          "confidence": "high"
+        }
+      },
+      "notes": "Opus 5（2026-07-24）；Frontier-Bench v0.1 与 GDPval-AA SOTA、ARC-AGI 3 为次优模型 3 倍、Zapier AutomationBench 通过率约 1.5 倍、OSWorld 2.0 任意成本下最优；官方定位为每日使用。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 2596,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 3,
+        "output": 15,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.3
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": 3,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://www.anthropic.com/news/claude-sonnet-5",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://www.anthropic.com/news/claude-sonnet-5",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-sonnet-5",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Sonnet 4.6（2026-02-17）；HLE 34.6%（无工具）/46.8%（有工具）、OSWorld-Verified 78.5%；定位为编码代理主力。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 227,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "claude-sonnet-5",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 2,
+        "output": 10,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.2
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": 3,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-sonnet-5",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://artificialanalysis.ai/articles/claude-sonnet-5-5",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-sonnet-5",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Sonnet 5（2026-06-30，$2/$10 永久价）；AA 智能指数由 Sonnet 5.5 的 56 分减 18 分推得约 38 分（推导值）；官方称 agentic 能力接近 Opus 4.8。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 2705,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text"
+      ],
+      "price": {
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.028
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 3,
+        "coding": 4,
+        "math_reasoning": 5,
+        "writing_literature": 3,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "high"
+        }
+      },
+      "notes": "官方 V4 模型卡 V4-Flash Max 档：SWE Verified 79.0、LiveCodeBench 91.6、SWE Pro 52.6、HMMT 2026 Feb 94.8、IMOAnswerBench 88.4、Codeforces 3052、MMLU-Pro 86.2、GPQA 88.1、MRCR 1M 78.7、Toolathlon 47.8、MCPAtlas 69.0。注意：DeepSeek 官方公告 V4-Flash 已停用，deepseek-v4-flash 现临时路由到 V4.1-Flash。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text"
+      ],
+      "price": {
+        "input": 0.66,
+        "output": 1.98,
+        "cache_read": 0.022
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 5,
+        "writing_literature": 4,
+        "translation": null,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "high"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "high"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+          "confidence": "high"
+        }
+      },
+      "notes": "官方 V4-Pro Max 档（1.6T/49B，1M 上下文）：SWE Verified 80.6、SWE Pro 55.4、LiveCodeBench 93.5、Codeforces 3206、HMMT 95.2、IMOAnswerBench 89.8、GPQA 90.1、MMLU-Pro 87.5、SimpleQA-V 57.9、MRCR 1M 83.5、Toolathlon 51.8、MCPAtlas 73.6、BrowseComp 83.4、GDPval-AA 1554。注意：官方已宣布逐步淘汰 V4-Pro，deepseek-v4-pro 请求自 2026-09-14 起按 V4.1-Flash 费率路由至 V4.1-Flash。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "deepseek-v4.1-flash",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": {
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": 0.003
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 5,
+        "writing_literature": 3,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "confidence": "high"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "confidence": "high"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "confidence": "high"
+        }
+      },
+      "notes": "官方 V4.1-Flash 模型卡（552B MoE，8B/16B 激活，1M 上下文，原生视觉，推理强度 1-100）：Terminal-Bench 2.1 90.6、DeepSWE v1.1 74.2、NL2Repo 64.0、CyberGym 88.1、MathArena Apex 65.6、Codeforces 3471、GPQA 90.9、HLE w/tools 63.9、AutomationBench 54.8、Agent's Last Exam 31.8；官方称多项超过 V4-Pro。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "fledge-alpha-free",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 3,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "2026-10-01 新上的免费预览推理模型（1M 上下文、文+图输入、工具调用、effort low/high/max），Zen 官方提示免费期内数据可能被用于改进模型；未找到任何厂商或第三方评测，分数仅为元数据推断。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "fling-3.0-flash-fin-free",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "该 ID 在 OpenCode Zen 官方清单、models.dev 与 HuggingFace 中均不存在；Zen 清单里的是 ling-3.0-flash-fin-free（Ling/蚂蚁金融增强版），此项极可能是拼写讹误，故全部 unknown。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "gemini-3-flash",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "price": {
+        "input": 0.5,
+        "output": 3,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.05
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 4,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": 3,
+        "long_context": 5,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "Gemini 3 Flash（2025-12-17），models.dev 记录的 canonical id 为 google/gemini-3-flash-preview；价格取 opencode 段 $0.5/$3（google 原生段无此 id）。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 267,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gemini-3.1-pro-high",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "price": {
+        "input": 2,
+        "output": 12,
+        "unit": "USD/1M tokens",
+        "over_200k": {
+          "input": 4,
+          "output": 18
+        },
+        "cache_read": 0.2
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 4,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        }
+      },
+      "notes": "非厂商官方 id：判定为 gemini-3.1-pro-preview 以 effort=high 调用（models.dev 中 gemini-3.1-pro 的 canonical_model_id 即 google/gemini-3.1-pro-preview，且其 reasoning_options 仅为 low/medium/high）；AA 智能指数 57（2026-03 版）。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 3634,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "gemini-3.1-pro-low",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "price": {
+        "input": 2,
+        "output": 12,
+        "unit": "USD/1M tokens",
+        "over_200k": {
+          "input": 4,
+          "output": 18
+        },
+        "cache_read": 0.2
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "非厂商官方 id：判定为 gemini-3.1-pro-preview 以 effort=low 调用；低 effort 下推理/代理类任务按官方 effort 语义下调 1 分（推断）。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 9029,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "gemini-3.1-pro-preview",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "price": {
+        "input": 2,
+        "output": 12,
+        "unit": "USD/1M tokens",
+        "over_200k": {
+          "input": 4,
+          "output": 18
+        },
+        "cache_read": 0.2
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 4,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Gemini 3.1 Pro Preview（2026-02-19）；AA 智能指数 57，与 GPT-5.4 并列 2026-03 榜首；Finance Agent v2 低于 Gemini 3.5 Flash 的 57.9%。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 214,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gemini-3.5-flash",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "price": {
+        "input": 1.5,
+        "output": 9,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.15
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 4,
+        "writing_literature": 3,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Gemini 3.5 Flash（2026-05-19）；Finance Agent v2 57.9%，Anthropic 官方脚注称显著优于 Gemini 3.1 Pro。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 235,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gemini-3.6-flash",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "price": {
+        "input": 0.75,
+        "output": 3.75,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.075
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 4,
+        "writing_literature": 3,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Gemini 3.6 Flash（2026-07-21）；价格按 google 原生段 $0.75/$3.75（聚合商段多为 $1.5/$7.5）；无公开的该模型专项基准。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 227,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-3.5-turbo",
+      "context_window": 16385,
+      "tool_calling": false,
+      "reasoning": false,
+      "modalities": [
+        "text"
+      ],
+      "price": {
+        "input": 0.5,
+        "output": 1.5,
+        "unit": "USD/1M tokens"
+      },
+      "scores": {
+        "daily_chat": 2,
+        "knowledge_qa": 2,
+        "learning_tutor": 2,
+        "coding": 1,
+        "math_reasoning": 1,
+        "writing_literature": 2,
+        "translation": 2,
+        "long_context": 1,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 1,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 1,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 1,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "2023-03 遗留模型，知识截止 2021-09，16k 上下文且 models.dev 记录 tool_call=false；分数为基于型号代际的粗判（low），无 2026 年评测。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 220,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-4o",
+      "context_window": 128000,
+      "tool_calling": true,
+      "reasoning": false,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 2.5,
+        "output": 10,
+        "unit": "USD/1M tokens",
+        "cache_read": 1.25
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 2,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 3,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "2024-05 遗留模型（知识截止 2023-09），不支持推理；分数为代际粗判（low），未找到 2026 年权威评测。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 220,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-4o-mini",
+      "context_window": 128000,
+      "tool_calling": true,
+      "reasoning": false,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 0.15,
+        "output": 0.6,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.075
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 2,
+        "math_reasoning": 2,
+        "writing_literature": 3,
+        "translation": 3,
+        "long_context": 3,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "2024-07 遗留小模型；分数为代际粗判（low）；2026 年已被 GPT-6 Luna（$0.10/$0.50）在价格与能力上双重超越。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 217,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-5.3-codex",
+      "context_window": 400000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 1.75,
+        "output": 14,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.175
+      },
+      "scores": {
+        "daily_chat": 3,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 5,
+        "math_reasoning": 3,
+        "writing_literature": 2,
+        "translation": 2,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        }
+      },
+      "notes": "GPT-5.3 Codex（2026-02-05）；编码专用，400k 上下文（输入上限 272k）、输出 128k；xhigh 为官方记录的 reasoning_effort 取值。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 225,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-5.4",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 2.5,
+        "output": 15,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.25,
+        "over_272k": {
+          "input": 5,
+          "output": 22.5
+        }
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 4,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        }
+      },
+      "notes": "GPT-5.4（2026-03-05）；AA 智能指数 57，与 Gemini 3.1 Pro Preview 并列 2026-03 榜首；定位为面向代理与计算机操作的编码模型。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": null,
+        "note": "NO_CHANNEL (缺渠道)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-5.4-xhigh",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 2.5,
+        "output": 15,
+        "unit": "USD/1M tokens",
+        "over_272k": {
+          "input": 5,
+          "output": 22.5
+        }
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 5,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-7",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        }
+      },
+      "notes": "非官方模型 id：即 gpt-5.4 以 reasoning_effort=xhigh 运行（models.dev 中 gpt-5.4 的 effort 取值含 xhigh；Artificial Analysis 按 effort 分档发布条目；Anthropic Opus 4.7 官方页引述 CodeRabbit 明确提到 “GPT-5.4 xhigh”）；高难任务比默认档高 1 分（推断）。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 271,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-5.5-xhigh",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 5,
+        "output": 30,
+        "unit": "USD/1M tokens",
+        "over_272k": {
+          "input": 10,
+          "output": 45
+        }
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 5,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "confidence": "high"
+        }
+      },
+      "notes": "非官方模型 id：即 gpt-5.5 以 reasoning_effort=xhigh 运行（同上证据链）；推理类分数按高 effort 上调 1 分（推断）。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 214,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 0.2,
+        "output": 1.2,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.02
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": 4,
+        "long_context": 4,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://simonwillison.net/2026/Jul/9/gpt-5-6/",
+          "confidence": "high"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://simonwillison.net/2026/Jul/9/gpt-5-6/",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "GPT-5.6 Luna（2026-07-09）；家族中最小最便宜（$0.2/$1.2），Simon Willison 记录 effort=none 时成本约 0.71 美分；日常对话性价比为其实测强项。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 5476,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 4,
+        "output": 20,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.4,
+        "over_272k": {
+          "input": 8,
+          "output": 30
+        }
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 5,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://simonwillison.net/2026/Jul/9/gpt-5-6/",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://simonwillison.net/2026/Jul/9/gpt-5-6/",
+          "confidence": "high"
+        }
+      },
+      "notes": "GPT-5.6 Sol（2026-07-09）；Agents' Last Exam 53.6（超 Claude Fable 5 达 13.1 分）；SWE-Bench Pro 64.6% 低于 Fable 5 的 80%；每智能指数任务成本约 $1.99。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 9745,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 2,
+        "output": 12,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.2
+      },
+      "scores": {
+        "daily_chat": 5,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 4,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://simonwillison.net/2026/Jul/9/gpt-5-6/",
+          "confidence": "medium"
+        }
+      },
+      "notes": "GPT-5.6 Terra（2026-07-09）；家族中档，官方称在约 1/16 成本下 Agents' Last Exam 超过 Fable 5；2026-09 起与 GPT-6 Sol 同价，Simon 认为已无保留理由。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 12582,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-6-luna",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 0.1,
+        "output": 0.5,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.01
+      },
+      "scores": {
+        "daily_chat": 5,
+        "knowledge_qa": 3,
+        "learning_tutor": 4,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": 4,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 5,
+          "source": "https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/",
+          "confidence": "high"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/",
+          "confidence": "medium"
+        }
+      },
+      "notes": "GPT-6 Luna（2026-09-22，$0.10/$0.50，OpenAI 史上最便宜之一）；Simon 实测 “fast and competent at both SQL queries and building HTML/JavaScript”，0.4 美分可出合格 pelican。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 12207,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-6-sol",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 2,
+        "output": 10,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.2
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 4,
+        "writing_literature": 4,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "medium"
+        }
+      },
+      "notes": "GPT-6 Sol（2026-09-22，$2/$10）；发布仅 7 天即被 GPT-6.1 Sol 取代（后者智能 +4 分、Terminal-Bench 4.0 +12 分、编码代理指数 +3 分）；Simon 的 Codex 默认模型。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 12100,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "context_window": 1050000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 2,
+        "output": 10,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.1
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 5,
+        "math_reasoning": 5,
+        "writing_literature": 5,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 5
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "high"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "high"
+        },
+        "writing_literature": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "medium"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 5,
+          "source": "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+          "confidence": "high"
+        }
+      },
+      "notes": "GPT-6.1 Sol（2026-09-29，$2/$10）；AA 智能指数仅低 Astra 1 分、每任务成本 $0.72 对 $3.26，且 xhigh 档编码代理指数反超 Astra 1 分（成本不足其 15%）。",
+      "measured": {
+        "reachable": true,
+        "tool": true,
+        "ttftMs": 2323,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "grok-3",
+      "context_window": 131072,
+      "tool_calling": true,
+      "reasoning": false,
+      "modalities": [
+        "text"
+      ],
+      "price": {
+        "input": 3,
+        "output": 15,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.75
+      },
+      "scores": {
+        "daily_chat": 3,
+        "knowledge_qa": 3,
+        "learning_tutor": 2,
+        "coding": 3,
+        "math_reasoning": 2,
+        "writing_literature": 2,
+        "translation": 2,
+        "long_context": 3,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 2,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "2025 年遗留模型；models.dev 仅在 helicone 段有记录（131k 上下文、纯文本、不支持推理），xAI 官方文档站不可达（DNS 解析到非公网地址）。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 332,
+        "note": "ERROR: invalid character '<' looking for beginning of value"
+      },
+      "configured": null
+    },
+    {
+      "id": "grok-4",
+      "context_window": 256000,
+      "tool_calling": true,
+      "reasoning": false,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": {
+        "input": 3,
+        "output": 15,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.75
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 4,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": 3,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "Grok 4；按 The Decoder 引述 Artificial Analysis，Grok 4.20 比 Grok 4 高 6 分（48 对约 42），故 Grok 4 明显落后 2026 年前沿；models.dev 两个 provider 段均记 reasoning=false。",
+      "measured": {
+        "reachable": true,
+        "tool": false,
+        "ttftMs": 2175,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "grok-420-fast",
+      "context_window": 2000000,
+      "tool_calling": true,
+      "reasoning": false,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 1.25,
+        "output": 2.5,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.2,
+        "over_200k": {
+          "input": 2.5,
+          "output": 5
+        }
+      },
+      "scores": {
+        "daily_chat": 5,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": 3,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 5,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        }
+      },
+      "notes": "别名：判定为 Grok 4.20 的 non-reasoning（快速）变体（xAI 官方仅发布 reasoning/non-reasoning/multi-agent 三种变体，无 -fast 命名，故映射为推断 medium/low）；2M 上下文、低幻觉率为实测强项。",
+      "measured": {
+        "reachable": true,
+        "tool": false,
+        "ttftMs": 3727,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "grok-420-thinking",
+      "context_window": 2000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "pdf"
+      ],
+      "price": {
+        "input": 1.25,
+        "output": 2.5,
+        "unit": "USD/1M tokens",
+        "cache_read": 0.2,
+        "over_200k": {
+          "input": 2.5,
+          "output": 5
+        }
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 5,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 4,
+        "writing_literature": 3,
+        "translation": 3,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 5,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 4,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "medium"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 3,
+          "source": "https://the-decoder.de/xais-grok-4-20-haengt-in-benchmarks-zurueck-und-glaenzt-dennoch-mit-niedrigster-halluzinationsrate/",
+          "confidence": "low"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        }
+      },
+      "notes": "别名：判定为 Grok 4.20 的 reasoning 变体；AA 智能指数 48（2026-03 版，低于 Gemini 3.1 Pro/GPT-5.4 的 57），但 AA-Omniscience 非幻觉率 78% 创当时纪录。",
+      "measured": {
+        "reachable": true,
+        "tool": false,
+        "ttftMs": 2278,
+        "note": "ok"
+      },
+      "configured": null
+    },
+    {
+      "id": "ling-3.0-flash-fin-free",
+      "context_window": 262144,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 3,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 4,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
+          "confidence": "medium"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
+          "confidence": "medium"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin",
+          "confidence": "medium"
+        }
+      },
+      "notes": "【因 fling-* 疑为拼写讹误而补充的条目】蚂蚁 Ling 首个金融增强模型，124B/5.1B、256K 上下文，官方称覆盖端到端金融研究、来源可溯检索、多文档推理、估值与表格工作流，并在 FinFIRST/FinSearchComp/Finance Agent/SpreadsheetBench/τ³-Banking 等评测；具体数字仅以图片给出。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "ling-3.1-flash-free",
+      "context_window": 262144,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Ling 3.1 无公开模型卡（HF 上 inclusionAI 仅到 Ling-3.0-flash），证据来自其基座官方卡：Ling-3.0-flash 为 124B/5.1B 混合线性注意力、256K 上下文，官方称 SWE-Bench Pro/Multilingual、Tau3-banking-AA、MCP-Atlas、SkillsBench 表现强；网关元数据称 3.1 定位低延迟助手与抽取类自动化。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "longcat-2.5-preview-free",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 4,
+        "math_reasoning": 3,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        }
+      },
+      "notes": "网关元数据称其为美团多模态推理模型、面向编码与智能体、1M 上下文且权重不开放；第三方报道标题称 1.6T MoE（未取到正文核实），未找到任何官方或第三方基准数字，分数纯位置推断。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "mimo-v2.5-free",
+      "context_window": 200000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 3,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 3,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 3
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5",
+          "confidence": "low"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5",
+          "confidence": "low"
+        }
+      },
+      "notes": "小米官方模型卡称 310B/15B 原生全模态（文/图/视频/音频）、支持 1M 上下文与强智能体能力，但评测仅以图片图表给出、无可读数字；models.dev 标注 Zen 该免费档为 deprecated、端点上限 200K。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "mimo-v2.6-flash-free",
+      "context_window": 200000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 4,
+        "math_reasoning": 3,
+        "writing_literature": 3,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+          "confidence": "high"
+        }
+      },
+      "notes": "小米官方 MiMo-V2.6-Flash-RL 模型卡（309B/15B，本地权重 1M 上下文）：Terminal Bench 2.1 87.6、DeepSWE v1.1 67.9、MiMo Code Bench 61.2、Toolathlon-Verified 73.6、OSWorld-Verified 80.8、AutomationBench 52.3；Zen 端点上限 200K。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "muse-spark-1.3-contributor-free",
+      "context_window": 1048576,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "pdf",
+        "audio"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 3,
+        "learning_tutor": 3,
+        "coding": 4,
+        "math_reasoning": 3,
+        "writing_literature": 4,
+        "translation": null,
+        "long_context": 4,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://dev.meta.ai/docs",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 3,
+          "source": "https://dev.meta.ai/docs",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 3,
+          "source": "https://dev.meta.ai/docs",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://dev.meta.ai/docs",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 3,
+          "source": "https://dev.meta.ai/docs",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 4,
+          "source": "https://dev.meta.ai/docs",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 4,
+          "source": "https://dev.meta.ai/docs",
+          "confidence": "medium"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://dev.meta.ai/docs",
+          "confidence": "medium"
+        }
+      },
+      "notes": "Meta 官方定位为多模态推理模型，面向长时运行/多智能体/编码工作流，称相对 1.2 提升长程协作、指令遵循与编码效率；1M 上下文、支持图/视频/PDF/音频输入。contributor 免费档的代价是提示与补全会被用于训练未来 Meta 模型（Zen 官方说明），零售价 $1.25/$4.25。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "nemotron-3-ultra-free",
+      "context_window": 1000000,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 4,
+        "knowledge_qa": 4,
+        "learning_tutor": 4,
+        "coding": 4,
+        "math_reasoning": 5,
+        "writing_literature": 3,
+        "translation": 4,
+        "long_context": 5,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 4,
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "confidence": "medium"
+        },
+        "knowledge_qa": {
+          "score": 4,
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "confidence": "high"
+        },
+        "learning_tutor": {
+          "score": 4,
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 4,
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "confidence": "high"
+        },
+        "math_reasoning": {
+          "score": 5,
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "confidence": "high"
+        },
+        "writing_literature": {
+          "score": 3,
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": 4,
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "confidence": "high"
+        },
+        "long_context": {
+          "score": 5,
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "confidence": "high"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "confidence": "high"
+        }
+      },
+      "notes": "NVIDIA 官方模型卡（550B-A55B，OpenMDW-1.1，1M 上下文）：LiveCodeBench v6 89.0、SWE-Bench Verified 70.7、IOI 2025 570、IMOAnswerBench 88.6、Apex-Shortlist 74.9、MMLU-Pro 86.8、GPQA 87.0、RULER(1M) 94.7、AA-LCR 65.4、TauBench V3 均分 70.9、WMT24++ 83.7。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "nemotron-3.5-lightning-free",
+      "context_window": 262144,
+      "tool_calling": true,
+      "reasoning": true,
+      "modalities": [
+        "text"
+      ],
+      "price": {
+        "input": 0,
+        "output": 0
+      },
+      "scores": {
+        "daily_chat": 3,
+        "knowledge_qa": 2,
+        "learning_tutor": 2,
+        "coding": 3,
+        "math_reasoning": 2,
+        "writing_literature": 2,
+        "translation": null,
+        "long_context": 3,
+        "agentic_tools": 4
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": 3,
+          "source": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "confidence": "low"
+        },
+        "knowledge_qa": {
+          "score": 2,
+          "source": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "confidence": "low"
+        },
+        "learning_tutor": {
+          "score": 2,
+          "source": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "confidence": "low"
+        },
+        "coding": {
+          "score": 3,
+          "source": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "confidence": "medium"
+        },
+        "math_reasoning": {
+          "score": 2,
+          "source": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "confidence": "low"
+        },
+        "writing_literature": {
+          "score": 2,
+          "source": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "confidence": "low"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": 3,
+          "source": "https://models.dev/api.json",
+          "confidence": "low"
+        },
+        "agentic_tools": {
+          "score": 4,
+          "source": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "confidence": "medium"
+        }
+      },
+      "notes": "NVIDIA 官方博客：30B MoE/3B 激活，定位『长时运行智能体的高并发执行层』而非规划层，PinchBench 86% 且完成 1 万任务比 Qwen3.6 35B 快 30%，AA 智能指数给出小型开源模型的精度-速度帕累托前沿；未公布知识/数学类基准。",
+      "measured": null,
+      "configured": null
+    },
+    {
+      "id": "qm",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "网关私有别名：在 models.dev 全部 226 个 provider 中零匹配，无任何公开来源可确认其对应真实模型，故全部字段为 null/unknown。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 223,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "qm2",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "网关私有别名：同上，models.dev 226 个 provider 中零匹配；“qm2” 暗示 qm 的第二代但无证据，不猜测。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 227,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "qm3",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "网关私有别名：同上，models.dev 226 个 provider 中零匹配；不猜测其与 qm/qm2 的关系。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 218,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    },
+    {
+      "id": "rmodel",
+      "context_window": null,
+      "tool_calling": null,
+      "reasoning": null,
+      "modalities": [],
+      "price": null,
+      "scores": {
+        "daily_chat": null,
+        "knowledge_qa": null,
+        "learning_tutor": null,
+        "coding": null,
+        "math_reasoning": null,
+        "writing_literature": null,
+        "translation": null,
+        "long_context": null,
+        "agentic_tools": null
+      },
+      "evidence": {
+        "daily_chat": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "knowledge_qa": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "learning_tutor": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "coding": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "math_reasoning": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "writing_literature": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "translation": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "long_context": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        },
+        "agentic_tools": {
+          "score": null,
+          "source": null,
+          "confidence": "unknown"
+        }
+      },
+      "notes": "网关私有别名：models.dev 226 个 provider 中零匹配，公开检索亦无结果；可能是网关内部路由/自建模型，不猜测。",
+      "measured": {
+        "reachable": false,
+        "tool": false,
+        "ttftMs": 219,
+        "note": "MODEL_UNAVAILABLE (网关无此模型)"
+      },
+      "configured": null
+    }
+  ]
+}

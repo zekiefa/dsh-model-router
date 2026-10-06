@@ -1,0 +1,30 @@
+# Runtime state written by the plugin — never commit these.
+# data/modes.json      maps session IDs to a mode; those are your session identifiers
+# data/diagnostics.log your full routing history: timestamps, session IDs, every pick
+data/diagnostics.log
+data/modes.json
+
+# Probe and research output. Regenerate with tools/probe-*.mjs and tools/build-capabilities.mjs.
+data/probe-raw.json
+data/probe-results.json
+data/capabilities.compact.json
+data/research-*.json
+data/*-compact.json
+_probe_results.json
+_probe_raw.json
+_health_cfg.json
+
+# Gateway endpoints and which credential to use for each. Local-only: it names the
+# services you pay for. Copy gateways.local.json.example to get started.
+gateways.local.json
+
+# Research scratch directories the capability builder reads.
+work/
+research/
+
+node_modules/
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db

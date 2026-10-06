@@ -1,0 +1,48 @@
+{
+  "name": "dsh-model-router",
+  "version": "0.1.0",
+  "description": "Question-type-aware model routing for DeepSeek Harness: correctness first for research tasks, free models first for small talk",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./classify": "./lib/classify.mjs",
+    "./policy": "./lib/policy.mjs",
+    "./client": "./lib/client.js"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "data/",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-api-session-controller"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "model-router",
+    "llm-routing"
+  ]
+}

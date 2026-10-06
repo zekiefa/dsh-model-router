@@ -1,0 +1,220 @@
+# The config layer this package contributes: insert the router into the Loader tree.
+# Applied automatically once a profile lists this package in dsh.profile.bundles.
+- insert:
+    - id: dsh-model-router
+      name: dsh-model-router
+      config:
+        enabled: true
+
+        # Off by default so the first enable is observable rather than silent:
+        # with dryRun the router only logs what it WOULD pick and changes nothing.
+        dryRun: false
+
+        # Where an unclassifiable model or exhausted candidate pool lands.
+        # The native DeepSeek route: always configured, no third-party gateway.
+        fallback:
+          provider: deepseek-account
+          model: deepseek-flash
+
+        # Research-type tasks are quality-first: cost only breaks ties.
+        research:
+          types:
+            - learning_tutor
+            - coding
+            - math_reasoning
+            - knowledge_qa
+            - agentic_tools
+          # Hard floor regardless of cost. null = take whatever scores highest.
+          # This key was documented here and never read by the policy, so setting it
+          # changed nothing at all. It is now enforced BEFORE the top rating is
+          # taken. If a floor would empty the pool the router relaxes it and says so
+          # in the reason, because a mistyped floor should not silence the turn.
+          minScore: null
+
+        # Small talk is efficiency-first: any model clearing the floor is
+        # acceptable, and among those the free ones win.
+        casual:
+          types:
+            - daily_chat
+          minScore: 3
+          preferFree: true
+
+        # Everything else: near-best quality, then cheapest of those.
+        # maxScoreDrop: 0 keeps ONLY the exact top score in contention, so a
+        # lower-rated free model cannot displace a specialist that sits at the
+        # top of the rating (e.g. Claude/GPT for writing).
+        #
+        # `translation` was listed here and has now been removed on purpose: 30 of
+        # its 64 ratings are null and the matrix's own caveats say "do not route on
+        # it". A configured policy for a column that is mostly missing means
+        # translation turns almost always fall through to the fallback route.
+        balanced:
+          types:
+            - writing_literature
+            - long_context
+          maxScoreDrop: 0
+
+        # Types with no configured policy fall here and are ordered by price alone.
+        # `translation` is the live example and it is deliberate: 32 of its ratings
+        # are tier inference at `confidence: low`, and the matrix's own caveats say
+        # not to route on that column — so price is the only honest tie-break left.
+        # The floor stops "cheapest" from reaching a model rated 1 at everything.
+        # Raising it will not improve translation quality; only real data will.
+        defaultPolicy:
+          minScore: 2
+
+        # Specialty preference — the "brain vs executor" split. Among models tied
+        # at the SAME top score, prefer these model-id substrings (in order)
+        # before falling back to price.
+        #
+        # How the preference is applied changed. It used to be a lexicographic
+        # override: on a tie the first matching brand won outright. It is now a
+        # bounded bonus, `preferBonus / (1 + rank)`, so it can only reorder a
+        # genuine tie — every one of the 446 ratings in the matrix is an integer on
+        # a 1-5 scale, so no bonus below 1 can outrank a real one-point gap — and
+        # the second-choice brand can no longer overtake the first on price.
+        #
+        # Two further corrections. It now matches the MODEL ID only, not the
+        # provider name: a gateway called `claude-proxy` used to hand top
+        # preference to every model it served. And it does not apply to a
+        # candidate whose rating is explicitly `low`/`unknown` confidence: those
+        # numbers are tier inference, not measurements, and letting a brand list
+        # arbitrate between them is a decision dressed up as evidence. That case is
+        # live today — `learning_tutor` has 31 models tied at its top rating and
+        # every one of them is rated from inference, so this entry currently has no
+        # effect on that type, which is the honest outcome.
+        #
+        # It applies to brain turns only (hard/moderate, plus the types that are
+        # inherently reasoning work); trivial repetitive turns stay on the cheapest
+        # qualifying model. A type omitted here keeps pure "price breaks ties".
+        prefer:
+          coding: ["claude", "gpt"]
+          math_reasoning: ["gpt", "gemini", "claude"]
+          knowledge_qa: ["claude", "gpt", "gemini", "grok"]
+          learning_tutor: ["claude", "gpt", "gemini"]
+          agentic_tools: ["claude", "gpt"]
+          writing_literature: ["claude", "gpt"]
+          long_context: ["claude", "gemini", "gpt"]
+
+        # Bounded nudges applied on top of the recorded rating. Both are below 1 on
+        # purpose: the rating scale is integers, so anything at or above 1 would let
+        # a preference outrank a genuine quality gap. Set either to 0 to switch it
+        # off. These must be numbers — a quoted "0.5" fails at mount rather than
+        # being silently ignored at decision time.
+        preferBonus: 0.5
+        reasoningBonus: 0.25 # a probe-verified reasoning model, on reasoning-shaped types
+        # A preference may only buy a BOUNDED premium. Two models rated equal are
+        # equal, and without this the brand list is an open-ended cheque: at 37x the
+        # price gap a flash model loses to Opus on a tie. Raise it to express brand
+        # priority deliberately; set it to a huge number to make prefer absolute.
+        preferPriceCap: 4
+
+        # Context-window feasibility. The router used to read no window at all, so a
+        # 200K conversation could be routed to a 128K model and silently truncated.
+        # The window now comes from the provider's own `resolveModelInfo`, which is
+        # the only authoritative value; the matrix is a per-provider opt-in below.
+        # The token estimate is deliberately high: under-estimating loses the whole
+        # turn to truncation, over-estimating only costs a more expensive route.
+        respectContext: true
+        contextHeadroom: 1.15 # reserve for the response on top of the estimate
+        promptOverheadTokens: 8000 # system prompt + tool schemas, absent from messages
+        # Falling back to the matrix window is ON by default: those values come from
+        # vendor documentation and all 52 of them are plausible, and switching the
+        # fallback off would leave the gate inert on any provider whose
+        # resolveModelInfo does not answer. The matrix NEVER overrides a live value —
+        # it only fills a gap. List a provider under `exclude` if you have checked
+        # its window is overstated, since an overstated window admits a model that
+        # truncates, and truncation loses the work rather than the money.
+        contextWindowFallback:
+          default: true
+          exclude: []
+
+        # The capability matrix is a snapshot of a market that moves weekly, and
+        # nothing used to notice when it aged. Past this age the router warns at
+        # boot and reports the age in /route. Rebuild with:
+        #   node tools/probe-catalog.mjs && node tools/build-capabilities.mjs
+        maxMatrixAgeDays: 45
+
+        # Cooldowns. The provider-level entry is the important one: rate limits are
+        # enforced per account or gateway, so several models sharing one key each
+        # holding only a model-scoped cooldown just took turns hitting the same wall.
+        # Consecutive failures at a provider double its window up to the cap, and
+        # one completed turn resets the streak.
+        cooldownMs: 120000
+        providerCooldownMs: 60000
+        maxCooldownMs: 600000
+        # One flat window for an exhausted daily allowance (`quota`), which resets
+        # on a schedule — escalating it walks the whole gateway out of service for
+        # the rest of the day. A spent billing balance (`insufficient_quota`) is
+        # NOT governed by this: that is permanent and takes maxCooldownMs instead.
+        quotaTtlMs: 120000
+
+        # Types forced to be treated as brain work regardless of difficulty, so a
+        # configured `prefer` entry applies to them even on a trivial turn. EMPTY by
+        # default: forcing it cost 33x on a six-character request ("优化下这段代码"
+        # went to the most expensive coder), because difficulty cannot reliably tell
+        # a one-line hard bug from a one-line easy one. Add a type only if you want
+        # that trade, knowing the short turns pay for it.
+        alwaysBrainTypes: []
+
+        # Grok on this gateway cannot call tools, so it may never serve a turn
+        # that executes a task. This list is the only place it is allowed.
+        #
+        # That is no longer enforced here by name. Whether a model can call tools
+        # is settled by the capability record — its own probe reached Grok, forced
+        # tool_choice, and got no tool call — so the tool gate excludes it on
+        # measurement. What remains below is purely the deployment's own rule about
+        # where Grok may serve at all, and `match` is configurable so the policy is
+        # not welded to a provider name that may change.
+        grok:
+          enabled: true
+          allowedTypes:
+            - daily_chat
+          # match: /^(grok|xai)\b|^grok[-_]/i
+
+        # The per-session "工作 / 闲聊" mode. `work` keeps the type-based policy
+        # above exactly as-is; `chat` steers the whole turn toward free models
+        # (Space Bunny Free first), and lets a genuinely hard question escalate
+        # to Grok for reasoning. The /mode command writes a durable map
+        # (data/modes.json) AND a `model-router/mode` session event; `defaultMode`
+        # is the value a session uses before it has ever been toggled. Routing
+        # reads the map, never the session log, because resolving a live session
+        # at route time can silently miss.
+        defaultMode: work
+        # Override where that map lives (the tests point it at a temp file).
+        # stateFile: ./data/modes.json
+        chat:
+          # The free model chat mode prefers first (must be free in the matrix).
+          preferred:
+            id: space-bunny-free
+
+        # After routing, write the chosen model back into the session's durable
+        # model selection so the composer's model seat switches to it and the
+        # user can see what actually served the turn. Disable if you prefer the
+        # selection to stay untouched.
+        reflectModel: true
+
+        # Keep small talk short at the wire level (a hard bound, independent of
+        # instruction following). null disables the cap.
+        chitchatMaxTokens: 700
+
+        # Tone control for small talk: contributes a system-prompt section that
+        # appears ONLY on small-talk turns, so every other prompt stays
+        # byte-identical. Note that a section which toggles turn to turn changes
+        # the system-prompt prefix, which is what a prompt cache keys on —
+        # disable this if cache reuse matters more than tone.
+        chitchatStyle:
+          enabled: true
+          # directive: override the built-in wording entirely.
+
+        # Auxiliary calls (session title, compaction) carry a purpose and keep
+        # whatever model the harness chose; their output format is contractual.
+        respectPurpose: true
+
+        # Provider/model pairs routing must never override, as "provider/model".
+        # Use this to protect a model pinned by configuration, e.g. a subagent's
+        # agentOptions.provider/model.
+        respectModels: []
+
+        # Never route a request carrying an image to a text-only model.
+        respectModalities: true
